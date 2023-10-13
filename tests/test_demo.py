@@ -6,7 +6,7 @@ client = TestClient(app)
 
 
 def test_get_demo_root():
-    response = client.get("/dashboard")
+    response = client.get("/demo")
     assert response.status_code == 200
     assert response.json() == {
         "messages": 1,

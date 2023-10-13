@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from app.services.demo_service import DemoService
 from ..dependencies import get_demo_service
 
-router = APIRouter(prefix="/dashboard", tags=["dashboard"])
+router = APIRouter(prefix="/demo", tags=["dashboard"])
 
 
 @router.get("/", operation_id="demoRoot", summary="Demonstrating Bigger Applications")
