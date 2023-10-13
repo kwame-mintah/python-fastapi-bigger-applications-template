@@ -10,7 +10,7 @@ def test_get_python_version():
     assert response.status_code == 200
     assert (
         response.json()
-        == "sys.version_info(major=3, minor=9, micro=6, releaselevel='final', serial=0)"
+        == "sys.version_info(major=3, minor=11, micro=5, releaselevel='final', serial=0)"
     )
 
 
