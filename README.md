@@ -36,6 +36,6 @@ docker-compose up -d
 
 Unit tests are located in `/tests` directory.
 
-``console
-pytest
-``
+```console
+pytest tests/
+```
