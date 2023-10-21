@@ -1,0 +1,21 @@
+name: '🧹 Run linter'
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  flake8-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@main
+
+      - name: 'Flake8 lint'
+        uses: py-actions/flake8@v2.2.1
+        with:
+          plugins: 'flake8-black'
+          max-line-length: '120'

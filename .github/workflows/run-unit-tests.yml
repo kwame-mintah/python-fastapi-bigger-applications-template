@@ -1,0 +1,33 @@
+name: '🧪 Run unit tests'
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+  push:
+    branches:
+      - main
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@main
+
+      - name: 'Install Python3'
+        uses: actions/setup-python@main
+        with:
+          python-version: '3.11.5'
+
+      - name: 'Install dependencies'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: 'Run tests with pytest'
+        run: pytest tests/
