@@ -6,8 +6,16 @@
 </a>
 
 This a template project, to demonstrate using FastAPI in a bigger application. The same file structure
-has been followed as per FastAPI [docs](https://fastapi.tiangolo.com/tutorial/bigger-applications/). Additionally,
-a `Dockerfile` has been created so FastAPI can be run within a docker container.
+has been followed as per FastAPI [docs](https://fastapi.tiangolo.com/tutorial/bigger-applications/).
+
+This repository is intended as a quick-start and includes the following:
+
+- A `Dockerfile` to build the FastAPI application following [guidelines](https://docs.docker.com/develop/develop-images/guidelines/)
+- `docker-compose.yml` file to build and start the application
+- GitHub Action workflow to run linting and unit tests
+- Pre-commit hooks to run on each commit
+- Pydantic models as response models for endpoints
+- Unit and feature tests for endpoints
 
 ## Usage
 
