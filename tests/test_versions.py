@@ -9,7 +9,7 @@ def test_get_python_version():
     response = client.get("/version/python")
     assert response.status_code == 200
     assert response.json() == {
-        "version": "sys.version_info(major=3, minor=11, micro=5, "
+        "version": "sys.version_info(major=3, minor=11, micro=6, "
         "releaselevel='final', serial=0)"
     }
 
