@@ -6,7 +6,7 @@ class Example(BaseModel):
 
 
 class Message(BaseModel):
-    messages: int = Field(None, title="Message ID")
+    messageId: int = Field(None, title="Message ID")
     example: Example = Field(None)
 
 
