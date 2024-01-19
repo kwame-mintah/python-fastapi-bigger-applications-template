@@ -6,3 +6,4 @@ requests>=2.31.0
 packaging~=23.2
 pydantic==2.5.3
 pytest-docker[docker-compose-v1]>=2.0.1
+httpx==0.26.0
