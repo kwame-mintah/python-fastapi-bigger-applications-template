@@ -1,0 +1,14 @@
+version: '3.9'
+
+# Build the fastapi server and expose on port 8000
+services:
+  fastapi:
+    build: ../../..
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    networks:
+      - app
+
+networks:
+  app:
