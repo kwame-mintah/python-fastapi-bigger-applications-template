@@ -1,8 +1,8 @@
-fastapi[all]==0.103.2
-pytest-bdd>=6.1.1
-pytest>=7.3.1
-python-dotenv>=1.0.0
-uvicorn==0.23.2
+fastapi[all]==0.109.0
+pytest-bdd>=7.0.1
+pytest>=7.4.4
+uvicorn==0.26.0
 requests>=2.31.0
 packaging~=23.2
-pydantic>=2.5.2
+pydantic==2.5.3
+pytest-docker[docker-compose-v1]>=2.0.1
