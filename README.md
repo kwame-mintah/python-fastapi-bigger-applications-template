@@ -1,6 +1,6 @@
 # Python FastAPI Bigger Applications Template
 
-![fastapi-0.103.2-informational](https://img.shields.io/badge/fastapi-0.103.2-informational)
+![fastapi-0.109.0-informational](https://img.shields.io/badge/fastapi-0.109.0-informational)
 <a href="https://github.com/new?template_name=python-fastapi-bigger-applications-template&template_owner=kwame-mintah">
   <img src="https://img.shields.io/badge/use%20this-template-blue?logo=github">
 </a>
@@ -36,14 +36,14 @@ This repository is intended as a quick-start and includes the following:
 Running the `docker-compose.yml`, will build a new image python-fastapi-bigger-applications-template-fastapi:latest
 which will be used for the `fastapi` service within the container.
 
-```commandline
+```console
 docker-compose up -d
 ```
 
 ## Tests
 
-Unit tests are located in `/tests` directory.
+Unit tests are located in `/tests/unit` directory.
 
 ```console
-pytest tests/
+pytest tests/unit
 ```
