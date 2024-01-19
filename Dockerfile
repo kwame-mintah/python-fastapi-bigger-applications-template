@@ -12,7 +12,7 @@ RUN apt-get update && \
 # Build the virtualenv as a separate step: Only re-execute this step when requirements.txt changes
 FROM build AS build-venv
 COPY requirements.txt /requirements.txt
-RUN /venv/bin/pip3.11 install --disable-pip-version-check -r /requirements.txt
+RUN /venv/bin/pip3.11 install --no-build-isolation --disable-pip-version-check -r /requirements.txt
 HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1"
 
 # Copy the virtualenv into a distroless image
