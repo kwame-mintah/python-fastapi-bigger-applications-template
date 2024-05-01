@@ -22,7 +22,7 @@ This repository is intended as a quick-start and includes the following:
 1. Install python packages used for the service
 
     ```console
-   pip install - requirements.txt
+   pip install -r requirements.txt
     ```
 2. Run the FastAPI server, which will run on port 8000
 
