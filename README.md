@@ -1,5 +1,6 @@
 # Python FastAPI Bigger Applications Template
 
+![python](https://img.shields.io/badge/python-3.11.6-informational)
 ![fastapi-0.109.0-informational](https://img.shields.io/badge/fastapi-0.109.0-informational)
 <a href="https://github.com/new?template_name=python-fastapi-bigger-applications-template&template_owner=kwame-mintah">
   <img src="https://img.shields.io/badge/use%20this-template-blue?logo=github">
@@ -42,8 +43,22 @@ docker-compose up -d
 
 ## Tests
 
-Unit tests are located in `/tests/unit` directory.
+Unit tests are located in `/tests/unit` directory, run unit tests using:
 
 ```console
 pytest tests/unit
+```
+
+Additionally, a coverage report can be generated using [`pytest-cov`](https://pypi.org/project/pytest-cov/):
+
+```console
+pytest --cov=app tests/unit --cov-report=html:coverage_report
+```
+
+Will generate a coverage HTML file, in the `/coverage_report/` directory, simply open the `index.html` in your chosen web browser.
+
+Integration tests are located in `/tests/integration` directory, run integration using:
+
+```console
+pytest tests/integration
 ```
