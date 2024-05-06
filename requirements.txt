@@ -1,6 +1,7 @@
 fastapi[all]==0.109.0
 pytest-bdd>=7.0.1
 pytest>=7.4.4
+pytest-cov>=5.0.0
 uvicorn==0.26.0
 requests>=2.31.0
 packaging~=23.2
