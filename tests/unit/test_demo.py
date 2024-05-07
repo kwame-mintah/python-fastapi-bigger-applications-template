@@ -5,7 +5,7 @@ from app.main import app
 client = TestClient(app)
 
 
-def test_get_demo_root():
+def test_get_demo_root() -> None:
     response = client.get("/demo")
     assert response.status_code == 200
     assert response.json() == {

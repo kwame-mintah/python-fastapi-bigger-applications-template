@@ -5,7 +5,7 @@ from app.main import app
 client = TestClient(app)
 
 
-def test_get_python_version():
+def test_get_python_version() -> None:
     response = client.get("/version/python")
     assert response.status_code == 200
     assert response.json() == {
@@ -14,7 +14,7 @@ def test_get_python_version():
     }
 
 
-def test_get_fastapi_version():
+def test_get_fastapi_version() -> None:
     response = client.get("/version/fastapi")
     assert response.status_code == 200
     assert response.json()["version"] >= "0.109.0"
