@@ -16,6 +16,10 @@ router = APIRouter(prefix="/version", tags=["versions"])
     response_model=Package,
 )
 async def python_version() -> Package:
+    """
+    Get the Python version on the host machine.
+    :return: Python version
+    """
     return Package(version=str(sys.version_info))
 
 
@@ -26,4 +30,8 @@ async def python_version() -> Package:
     response_model=Package,
 )
 async def fastapi_version() -> Package:
+    """
+    Get the FastAPI version installed.
+    :return: FastAPI version
+    """
     return Package(version=version.parse(fastapi.__version__).base_version)

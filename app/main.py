@@ -10,7 +10,11 @@ app.include_router(versions.router)
 
 
 @app.get("/")
-async def root():
+async def root() -> dict:
+    """
+    Example response, when accessing root e.g. `http://localhost:8000/`
+    :return: Message
+    """
     return {"message": "What a wonderful kind of day."}
 
 
