@@ -6,9 +6,9 @@ class Example(BaseModel):
 
 
 class Message(BaseModel):
-    messageId: int = Field(None, title="Message ID")
+    messageId: int = Field(title="Message ID", examples=[1])
     example: Example = Field(None)
 
 
 class Package(BaseModel):
-    version: str = Field(None, title="Package version")
+    version: str = Field(None, title="Package version", examples=["0.109.0"])

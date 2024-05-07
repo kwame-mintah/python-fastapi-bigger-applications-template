@@ -1,11 +1,22 @@
-class DemoService:
-    stub_data = {
-        "messageId": 1,
-        "example": {
-            "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-            "ut labore et dolore magna aliqua."
-        },
-    }
+from app.models.models import Message, Example
 
-    def return_stub_data(self):
+
+class DemoService:
+    """
+    Example class to return mock / stubbed data.
+    """
+
+    stub_data = Message(
+        messageId=1,
+        example=Example(
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut "
+            "labore et dolore magna aliqua."
+        ),
+    )
+
+    def return_stub_data(self) -> Message:
+        """
+        Example data returned from an endpoint
+        :return: Message
+        """
         return self.stub_data
