@@ -12,7 +12,7 @@ router = APIRouter(prefix="/demo", tags=["dashboard"])
     operation_id="demoRoot",
     summary="Demonstrating Bigger Applications",
     response_model=Message,
-    responses=status.HTTP_200_OK,
+    status_code=status.HTTP_200_OK,
 )
 async def root(
     service: DemoService = Depends(get_demo_service()),
