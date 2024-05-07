@@ -4,6 +4,7 @@ version: '3.9'
 services:
   fastapi:
     build: .
+    platform: "linux/amd64"
     restart: unless-stopped
     ports:
       - "8000:8000"
