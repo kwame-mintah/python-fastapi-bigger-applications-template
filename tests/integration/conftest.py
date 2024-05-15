@@ -2,7 +2,6 @@ import os
 
 import pytest
 import requests
-
 from requests.exceptions import ConnectionError
 
 
