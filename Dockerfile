@@ -13,7 +13,6 @@ RUN apt-get update && \
 FROM build AS build-venv
 COPY requirements.txt /requirements.txt
 RUN /venv/bin/pip3.11 install --no-build-isolation --disable-pip-version-check -r /requirements.txt
-HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1"
 
 # Copy the virtualenv into a distroless image
 FROM gcr.io/distroless/python3-debian12:nonroot
@@ -21,4 +20,5 @@ COPY --from=build-venv /venv /venv
 COPY . /app
 WORKDIR /app
 USER nobody
+HEALTHCHECK CMD curl --fail http://localhost:8000/docs || exit 1
 ENTRYPOINT ["/venv/bin/uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
