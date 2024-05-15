@@ -1,7 +1,7 @@
 import sys
 
 import fastapi
-from fastapi import APIRouter
+from fastapi import APIRouter, status
 from packaging import version
 
 from app.models.models import Package
@@ -14,6 +14,7 @@ router = APIRouter(prefix="/version", tags=["versions"])
     operation_id="pythonVersion",
     summary="Python version installed",
     response_model=Package,
+    status_code=status.HTTP_200_OK,
 )
 async def python_version() -> Package:
     """
@@ -28,6 +29,7 @@ async def python_version() -> Package:
     operation_id="fastapiVersion",
     summary="FastAPI version installed",
     response_model=Package,
+    status_code=status.HTTP_200_OK,
 )
 async def fastapi_version() -> Package:
     """
