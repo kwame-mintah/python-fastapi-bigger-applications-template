@@ -12,8 +12,8 @@ class DemoService:
         Message(
             messageId=1,
             example=Example(
-                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut "
-                "labore et dolore magna aliqua."
+                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                "sed do eiusmod tempor incididuntut labore et dolore magna aliqua."
             ),
         )
     ]
