@@ -11,4 +11,4 @@ class Message(BaseModel):
 
 
 class Package(BaseModel):
-    version: str = Field(default="", title="Package version", examples=["0.109.0"])
+    version: str = Field(default="", title="Package version", examples=["0.115.0"])

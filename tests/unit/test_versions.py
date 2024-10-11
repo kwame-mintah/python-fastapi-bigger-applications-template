@@ -17,4 +17,4 @@ def test_get_python_version() -> None:
 def test_get_fastapi_version() -> None:
     response = client.get("/version/fastapi")
     assert response.status_code == 200
-    assert response.json()["version"] >= "0.109.0"
+    assert response.json()["version"] >= "0.115.0"
