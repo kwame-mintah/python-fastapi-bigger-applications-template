@@ -3,8 +3,8 @@ from typing import List
 from fastapi import APIRouter, Depends, status
 
 from app.services.demo_service import DemoService
-from ..dependencies import get_demo_service
-from ..models.models import Message
+from app.dependencies import get_demo_service
+from app.models.models import Message
 
 router = APIRouter(prefix="/demo", tags=["dashboard"])
 
