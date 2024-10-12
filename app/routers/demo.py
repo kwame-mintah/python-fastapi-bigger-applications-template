@@ -17,7 +17,7 @@ router = APIRouter(prefix="/demo", tags=["dashboard"])
     status_code=status.HTTP_200_OK,
 )
 async def root(
-    service: DemoService = Depends(get_demo_service()),
+    service: DemoService = Depends(get_demo_service),
 ) -> List[Message]:
     """
     An example `GET` endpoint to return a response
@@ -36,7 +36,7 @@ async def root(
 )
 async def root(
     message: Message,
-    service: DemoService = Depends(get_demo_service()),
+    service: DemoService = Depends(get_demo_service),
 ) -> List[Message]:
     """
     An example `POST` endpoint to return a response
