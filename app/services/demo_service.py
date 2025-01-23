@@ -32,3 +32,12 @@ class DemoService:
         """
         self.stub_data.append(message)
         return self.stub_data
+
+    def remove_stub_data(self, message_id: int) -> None:
+        """
+        Example delete request returning nothing back
+        :param message_id:
+        """
+        for message in self.stub_data:
+            if message.messageId == message_id:
+                self.stub_data.remove(message)
