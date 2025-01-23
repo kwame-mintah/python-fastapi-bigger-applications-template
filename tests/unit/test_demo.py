@@ -40,3 +40,16 @@ def test_post_demo_root() -> None:
         },
         {"example": {"placeholder": "Unit Testing"}, "messageId": 2},
     ]
+
+
+def test_delete_demo_root() -> None:
+    existing_data = client.get("/demo")
+    assert len(existing_data.json()) >= 2
+
+    response = client.delete(
+        url="/demo/1", headers={"Content-type": "application/json"}
+    )
+    assert response.status_code == 204
+
+    after_deletion = client.get("/demo")
+    assert len(after_deletion.json()) == 1
