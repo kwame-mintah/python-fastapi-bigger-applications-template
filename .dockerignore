@@ -3,3 +3,4 @@
 tests
 venv
 Dockerfile
+Dockerfile.distroless

@@ -11,13 +11,13 @@ has been followed as per FastAPI [docs](https://fastapi.tiangolo.com/tutorial/bi
 
 This repository is intended as a quick-start and includes the following:
 
-- A `Dockerfile` to build the FastAPI application
-  following [guidelines](https://docs.docker.com/develop/develop-images/guidelines/)
-- `docker-compose.yml` file to build and start the application
-- GitHub Action workflow to run linting and unit tests
-- Pre-commit hooks to run on each commit
-- Pydantic models as response models for endpoints
-- Unit and integration feature tests for endpoints
+- A [`Dockerfile`](/Dockerfile) to build the FastAPI application
+  following [guidelines](https://docs.docker.com/develop/develop-images/guidelines/) and [Distroless variant](/Dockerfile.distroless),
+- A `docker-compose.yml` file to build and start the application,
+- GitHub Action workflow to run linting and unit tests,
+- Pre-commit hooks to run on each commit,
+- Pydantic models as response models for endpoints,
+- Unit and integration feature tests for endpoints.
 
 ## Usage
 

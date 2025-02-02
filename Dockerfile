@@ -1,24 +1,24 @@
-# Build a virtualenv using the appropriate Debian release
-# * Install python3-venv for the built-in Python3 venv module (not installed by default)
-# * Install gcc libpython3-dev to compile C Python modules
-# * In the virtualenv: Update pip setuputils and wheel to support building new packages
-FROM debian:12-slim AS build
-RUN apt-get update && \
-    apt-get install --no-install-suggests --no-install-recommends --yes python3-venv gcc libpython3-dev && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* && \
-    python3 -m venv /venv && \
-    /venv/bin/pip install --upgrade pip setuptools wheel
+ARG BUILD_PLATFORM=linux/amd64
+ARG BASE_IMAGE=python:3.11.6-slim-bullseye
+FROM --platform=${BUILD_PLATFORM} ${BASE_IMAGE}
 
-# Build the virtualenv as a separate step: Only re-execute this step when requirements.txt changes
-FROM build AS build-venv
-COPY requirements.txt /requirements.txt
-RUN /venv/bin/pip3.11 install --no-build-isolation --disable-pip-version-check -r /requirements.txt
+# Set working directory as `/code/`
+WORKDIR /code
 
-# Copy the virtualenv into a distroless image
-FROM gcr.io/distroless/python3-debian12:nonroot
-COPY --from=build-venv /venv /venv
-COPY . /app
-WORKDIR /app
+# Copy python modules used within application
+COPY ./requirements.txt /code/requirements.txt
+
+# Install all python modules, keep image as small as possible
+# don't store the cache directory during install
+RUN pip install --no-build-isolation --no-cache-dir --upgrade -r /code/requirements.txt
+
+# Copy application code to `/code/app/`
+COPY . /code
+
+# Don't run application as root, instead user called `nobody`
+RUN chown -R nobody /code
+
 USER nobody
-HEALTHCHECK CMD curl --fail http://localhost:8000/docs || exit 1
-ENTRYPOINT ["/venv/bin/uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Start fastapi application
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
