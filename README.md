@@ -31,7 +31,12 @@ This repository is intended as a quick-start and includes the following:
     ```console
    python app/main.py
     ```
-   Endpoint documentation are available on http://127.0.0.1:8000/docs
+
+   Alternatively, if you're within your [virtual environment]:
+   ```console
+   uvicorn app.main:app --host 0.0.0.0 --port 8000
+   ```
+Endpoint documentation are available on http://127.0.0.1:8000/docs
 
 ## Docker
 
