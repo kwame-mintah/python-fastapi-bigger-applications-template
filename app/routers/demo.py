@@ -65,5 +65,4 @@ async def demo_delete(
     :param service: DemoService
     :return: successfully processed the request
     """
-    print(message_id)
     return service.remove_stub_data(message_id)
