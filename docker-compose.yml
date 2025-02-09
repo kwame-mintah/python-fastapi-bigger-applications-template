@@ -1,5 +1,3 @@
-version: '3.9'
-
 # Build the fastapi server and expose on port 8000
 services:
   fastapi:
