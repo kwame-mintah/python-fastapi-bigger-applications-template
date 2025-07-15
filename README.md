@@ -1,7 +1,7 @@
 # Python FastAPI Bigger Applications Template
 
 ![python](https://img.shields.io/badge/python-3.11.6-informational)
-![fastapi-0.115.0-informational](https://img.shields.io/badge/fastapi-0.115.0-informational)
+![fastapi-0.116.0-informational](https://img.shields.io/badge/fastapi-0.116.0-informational)
 <a href="https://github.com/new?template_name=python-fastapi-bigger-applications-template&template_owner=kwame-mintah">
 <img src="https://img.shields.io/badge/use%20this-template-blue?logo=github">
 </a>
