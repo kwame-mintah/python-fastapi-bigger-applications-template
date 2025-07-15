@@ -1,5 +1,6 @@
+import json
 from typing import Generator
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 
 import pytest
 from fastapi.testclient import TestClient
@@ -80,6 +81,30 @@ def test_post_demo_root_should_insert_new_message_returning_200_status_code(
             "messageId": 1,
         },
         {"example": {"placeholder": "Unit Testing"}, "messageId": 2},
+    ]
+
+
+def test_post_demo_root_formdata_should_insert_new_message_returning_200_status_code(
+    client: TestClient,
+) -> None:
+    response = client.post(
+        url="/demo/formdata",
+        data={
+            "messageId": 2,
+            "example": json.dumps({"placeholder": "Example request using FormData"}),
+        },
+    )
+    assert response.status_code == 200
+    assert response.json() == [
+        {
+            "example": {
+                "placeholder": "Lorem ipsum dolor sit amet, consectetur "
+                "adipiscing elit, sed do eiusmod tempor "
+                "incididuntut labore et dolore magna aliqua."
+            },
+            "messageId": 1,
+        },
+        {"example": {"placeholder": "Example request using FormData"}, "messageId": 2},
     ]
 
 
