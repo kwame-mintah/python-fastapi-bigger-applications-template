@@ -1,4 +1,6 @@
-from pydantic import BaseModel, Field
+import json
+
+from pydantic import BaseModel, Field, field_validator
 
 
 class Example(BaseModel):
@@ -8,6 +10,18 @@ class Example(BaseModel):
 class Message(BaseModel):
     messageId: int = Field(title="Message ID", examples=[1])
     example: Example = Field(title="Example Model inheriting another model")
+
+
+class MessageFormData(BaseModel):
+    messageId: int = Field(title="Message ID", examples=[1])
+    example: Example = Field(title="Example Model inheriting another model")
+
+    @field_validator("example", mode="before")
+    @classmethod
+    def validate_example_field(cls, value):
+        if isinstance(value, str):
+            return json.loads(value)
+        return value
 
 
 class Package(BaseModel):

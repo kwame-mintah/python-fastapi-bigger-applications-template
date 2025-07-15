@@ -1,6 +1,6 @@
 from typing import List
 
-from app.models.models import Message, Example
+from app.models.models import Message, Example, MessageFormData
 
 
 class DemoService:
@@ -25,7 +25,9 @@ class DemoService:
         """
         return self.stub_data
 
-    def create_additional_stub_data(self, message: Message) -> List[Message]:
+    def create_additional_stub_data(
+        self, message: Message | MessageFormData
+    ) -> List[Message]:
         """
         Example post request returning results from an endpoint
         :return: Message

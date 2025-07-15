@@ -1,10 +1,10 @@
-from typing import List
+from typing import List, Annotated
 
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, status, Form
 
-from app.services.demo_service import DemoService
 from app.dependencies import get_demo_service
-from app.models.models import Message
+from app.models.models import Message, MessageFormData
+from app.services.demo_service import DemoService
 
 router = APIRouter(prefix="/demo", tags=["demo"])
 
@@ -29,13 +29,33 @@ async def demo_get(
 
 @router.post(
     path="",
-    operation_id="postDemoRoot",
-    summary="Demonstrating POST Request",
+    operation_id="postDemoRootJsonBody",
+    summary="Demonstrating POST Request with JSON body",
     response_model=List[Message],
     status_code=status.HTTP_200_OK,
 )
-async def demo_post(
+async def demo_post_json_body(
     message: Message,
+    service: DemoService = Depends(get_demo_service),
+) -> List[Message]:
+    """
+    An example `POST` endpoint to return a response
+    :param message:
+    :param service:
+    :return: List of Messages stored
+    """
+    return service.create_additional_stub_data(message)
+
+
+@router.post(
+    path="/formdata",
+    operation_id="postDemoRootFormData",
+    summary="Demonstrating POST Request with FormData",
+    response_model=List[Message],
+    status_code=status.HTTP_200_OK,
+)
+async def demo_post_formdata(
+    message: Annotated[MessageFormData, Form()],
     service: DemoService = Depends(get_demo_service),
 ) -> List[Message]:
     """
